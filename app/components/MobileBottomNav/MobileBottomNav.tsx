@@ -3,7 +3,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import { useState } from 'react';
 
 export default function MobileBottomNav() {
   const [value, setValue] = useState(0);
