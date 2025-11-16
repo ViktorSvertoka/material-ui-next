@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ImageList,
   ImageListItem,

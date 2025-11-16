@@ -1,6 +1,10 @@
+'use client';
+
 import { Box, IconButton, Typography } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+
+import { useState } from 'react';
 
 export default function Card({ cat }) {
   const [fav, setFav] = useState(false);

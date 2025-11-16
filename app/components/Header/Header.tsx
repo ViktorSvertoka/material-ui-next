@@ -1,3 +1,5 @@
+'use client';
+
 import {
   AppBar,
   Toolbar,
@@ -15,6 +17,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+import { useState } from 'react';
 
 import MobileMenu from '../MobileMenu/MobileMenu';
 import MobileBottomNav from '../MobileBottomNav/MobileBottomNav';
