@@ -18,7 +18,7 @@ export default function Footer() {
       }}
     >
       <Grid container spacing={4}>
-        <Grid item xs={12} sm={12} md={12} lg={4}>
+        <Grid size={{ xs: 12, lg: 4 }}>
           <Typography
             sx={{
               fontSize: '18px',
@@ -50,7 +50,7 @@ export default function Footer() {
           </Box>
         </Grid>
 
-        <Grid item xs={12} sm={12} md={12} lg={4}>
+        <Grid size={{ xs: 12, lg: 4 }}>
           <Typography
             sx={{
               fontSize: '18px',
@@ -67,7 +67,7 @@ export default function Footer() {
           <Typography sx={{ mb: 1.5 }}>Terms & Conditions</Typography>
         </Grid>
 
-        <Grid item xs={12} sm={12} md={12} lg={4}>
+        <Grid size={{ xs: 12, lg: 4 }}>
           <Typography
             sx={{
               fontSize: '18px',
