@@ -65,8 +65,9 @@ export default function Banner() {
             color: '#444',
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Every day, countless animals wait for a chance to be seen, loved, and
+          protected. Join us in giving them a safe home, warm hands, and a
+          better tomorrow.
         </Typography>
 
         <Button

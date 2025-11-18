@@ -31,10 +31,11 @@ export default function Footer() {
           </Typography>
 
           <Typography sx={{ mb: 3, lineHeight: 1.6 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Cats & Friends is a community-driven project dedicated to helping
+            stray and abandoned animals find new families. We provide care,
+            medical support, and a safe environment while they wait for
+            adoption. Your kindness helps us change their lives — one furry
+            friend at a time.
           </Typography>
 
           <Box sx={{ display: 'flex', gap: 2 }}>
@@ -62,7 +63,7 @@ export default function Footer() {
             Information
           </Typography>
 
-          <Typography sx={{ mb: 1.5 }}>Lorem ipsum</Typography>
+          <Typography sx={{ mb: 1.5 }}>About us</Typography>
           <Typography sx={{ mb: 1.5 }}>Privacy & Policy</Typography>
           <Typography sx={{ mb: 1.5 }}>Terms & Conditions</Typography>
         </Grid>
