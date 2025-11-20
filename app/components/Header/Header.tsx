@@ -50,14 +50,12 @@ export default function Header() {
               justifyContent: 'space-between',
             }}
           >
-            {/* Mobile Menu Icon */}
             {!isMedium && (
               <IconButton onClick={() => setMobileOpen(true)}>
                 <MenuIcon />
               </IconButton>
             )}
 
-            {/* Logo */}
             <Typography
               variant={isMedium ? 'h3' : 'h4'}
               sx={{
@@ -71,7 +69,6 @@ export default function Header() {
               Cats & friends
             </Typography>
 
-            {/* Desktop Menu */}
             {isMedium && (
               <Box
                 sx={{
@@ -113,7 +110,6 @@ export default function Header() {
               </Box>
             )}
 
-            {/* Icons */}
             {isMedium && (
               <Box
                 sx={{

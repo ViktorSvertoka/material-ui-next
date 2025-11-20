@@ -100,7 +100,7 @@ export default function Footer() {
             color: '#ccc',
           }}
         >
-          © 2025 Cats & Friends
+          © {new Date().getFullYear()} Cats & Friends
         </Typography>
       </Box>
     </Box>
