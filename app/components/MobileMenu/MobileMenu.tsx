@@ -12,7 +12,12 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function MobileMenu({ open, onClose }) {
+interface MobileMenuProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+export default function MobileMenu({ open, onClose }: MobileMenuProps) {
   return (
     <Drawer anchor="left" open={open} onClose={onClose}>
       <Box
@@ -42,6 +47,7 @@ export default function MobileMenu({ open, onClose }) {
             >
               <Typography>Stories</Typography>
             </AccordionSummary>
+
             <AccordionDetails sx={{ pl: 2 }}>
               <ListItemButton sx={{ color: 'white' }}>Blog</ListItemButton>
               <ListItemButton sx={{ color: 'white' }}>Podcast</ListItemButton>

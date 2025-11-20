@@ -3,10 +3,18 @@
 import { Box, IconButton, Typography } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
 import { useState } from 'react';
 
-export default function Card({ cat }) {
+export interface CatItem {
+  img: string;
+  title: string;
+}
+
+interface CardProps {
+  cat: CatItem;
+}
+
+export default function Card({ cat }: CardProps) {
   const [fav, setFav] = useState(false);
 
   return (
@@ -16,6 +24,8 @@ export default function Card({ cat }) {
         maxWidth: 380,
         position: 'relative',
         overflow: 'hidden',
+        borderRadius: 2,
+        boxShadow: 3,
       }}
     >
       <Box
@@ -24,7 +34,7 @@ export default function Card({ cat }) {
         alt={cat.title}
         sx={{
           width: '100%',
-          height: '260px',
+          height: 260,
           objectFit: 'cover',
           display: 'block',
         }}
@@ -36,18 +46,19 @@ export default function Card({ cat }) {
           bottom: 0,
           left: 0,
           width: '100%',
-          height: '48px',
+          height: 48,
           bgcolor: 'rgba(0,0,0,0.35)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           px: 2,
+          backdropFilter: 'blur(2px)',
         }}
       >
         <Typography
           sx={{
             color: '#f0f0f0',
-            fontSize: '16px',
+            fontSize: 16,
             fontWeight: 500,
           }}
         >

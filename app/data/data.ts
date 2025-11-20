@@ -1,4 +1,6 @@
-export const itemData = [
+import type { CatItem } from '../components/Card/Card';
+
+export const itemData: CatItem[] = [
   {
     img: 'cat-01.jfif',
     title: 'Shyster',

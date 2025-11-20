@@ -19,7 +19,6 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { useState } from 'react';
-
 import MobileMenu from '../MobileMenu/MobileMenu';
 import MobileBottomNav from '../MobileBottomNav/MobileBottomNav';
 
@@ -27,7 +26,7 @@ export default function Header() {
   const isLarge = useMediaQuery('(min-width:1200px)');
   const isMedium = useMediaQuery('(min-width:900px)');
 
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const open = Boolean(anchorEl);
@@ -54,6 +53,7 @@ export default function Header() {
               <MenuIcon data-testid="MenuIcon" />
             </IconButton>
           )}
+
           {!isMedium && (
             <Typography
               variant="h4"
@@ -68,6 +68,7 @@ export default function Header() {
               Cats & friends
             </Typography>
           )}
+
           {isMedium && (
             <Typography
               variant="h3"
@@ -81,6 +82,7 @@ export default function Header() {
               Cats & friends
             </Typography>
           )}
+
           {isMedium && (
             <Box
               sx={{
@@ -95,7 +97,9 @@ export default function Header() {
 
               <Button
                 sx={{ color: 'black' }}
-                onClick={e => setAnchorEl(e.currentTarget)}
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                  setAnchorEl(e.currentTarget)
+                }
                 endIcon={<ExpandMoreIcon />}
               >
                 Stories
@@ -105,9 +109,11 @@ export default function Header() {
                 anchorEl={anchorEl}
                 open={open}
                 onClose={() => setAnchorEl(null)}
-                PaperProps={{
-                  elevation: 3,
-                  sx: { mt: 1 },
+                slotProps={{
+                  paper: {
+                    elevation: 3,
+                    sx: { mt: 1 },
+                  },
                 }}
               >
                 <MenuItem onClick={() => setAnchorEl(null)}>Blog</MenuItem>
@@ -117,9 +123,15 @@ export default function Header() {
               <Button sx={{ color: 'black' }}>Login</Button>
             </Box>
           )}
+
           {isLarge && (
             <Box
-              sx={{ display: 'flex', alignItems: 'center', gap: 3, ml: 'auto' }}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 3,
+                ml: 'auto',
+              }}
             >
               <IconButton>
                 <FavoriteIcon data-testid="FavoriteIcon" />
@@ -138,6 +150,7 @@ export default function Header() {
               </IconButton>
             </Box>
           )}
+
           {!isLarge && isMedium && (
             <Box
               sx={{

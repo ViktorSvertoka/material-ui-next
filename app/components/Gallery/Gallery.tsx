@@ -15,6 +15,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import Card from '../Card/Card';
 import { itemData } from '../../data/data';
 
+import Image from 'next/image';
+
 export default function Gallery() {
   const isLarge = useMediaQuery('(min-width:1000px)');
   const isMedium = useMediaQuery('(min-width:800px)');
@@ -32,15 +34,16 @@ export default function Gallery() {
         Waiting for their owners
       </Typography>
 
-      {/* ImageList (если будешь использовать) */}
       <ImageList cols={cols} gap={16} sx={{ display: 'none' }}>
         {itemData.map((item, index) => (
           <ImageListItem key={index}>
-            <img
-              src={item.img}
+            <Image
+              src={`/images/${item.img}`}
               alt={item.title}
-              loading="lazy"
+              width={500}
+              height={400}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              priority={index < 3}
             />
             <ImageListItemBar
               title={item.title}
@@ -54,7 +57,6 @@ export default function Gallery() {
         ))}
       </ImageList>
 
-      {/* Новый MUI Grid v2 */}
       <Grid container spacing={3} justifyContent="center">
         {itemData.map((cat, i) => (
           <Grid
