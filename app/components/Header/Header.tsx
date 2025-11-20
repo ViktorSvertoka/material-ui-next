@@ -28,7 +28,6 @@ export default function Header() {
 
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const open = Boolean(anchorEl);
 
   return (
@@ -37,145 +36,111 @@ export default function Header() {
         position="static"
         color="transparent"
         elevation={0}
-        sx={{
-          borderBottom: '1px solid #ddd',
-          py: 1,
-        }}
+        sx={{ borderBottom: '1px solid #ddd', py: 1 }}
       >
-        <Toolbar
-          sx={{
-            gap: 2,
-            justifyContent: isMedium ? 'flex-start' : 'space-between',
-          }}
-        >
-          {!isMedium && (
-            <IconButton color="inherit" onClick={() => setMobileOpen(true)}>
-              <MenuIcon data-testid="MenuIcon" />
-            </IconButton>
-          )}
+        <Toolbar disableGutters>
+          <Box
+            sx={{
+              maxWidth: '1400px',
+              width: '100%',
+              mx: 'auto',
+              px: { xs: 2, md: 3 },
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
+            {/* Mobile Menu Icon */}
+            {!isMedium && (
+              <IconButton onClick={() => setMobileOpen(true)}>
+                <MenuIcon />
+              </IconButton>
+            )}
 
-          {!isMedium && (
+            {/* Logo */}
             <Typography
-              variant="h4"
+              variant={isMedium ? 'h3' : 'h4'}
               sx={{
-                flexGrow: 1,
                 fontFamily: "'Allura', cursive",
-                textAlign: 'center',
                 color: '#49a4a4',
-                fontSize: '40px',
+                fontSize: isMedium ? '40px' : '36px',
+                flexGrow: isMedium ? 0 : 1,
+                textAlign: isMedium ? 'left' : 'center',
               }}
             >
               Cats & friends
             </Typography>
-          )}
 
-          {isMedium && (
-            <Typography
-              variant="h3"
-              sx={{
-                fontFamily: "'Allura', cursive",
-                color: '#49a4a4',
-                fontSize: '40px',
-                flexShrink: 0,
-              }}
-            >
-              Cats & friends
-            </Typography>
-          )}
-
-          {isMedium && (
-            <Box
-              sx={{
-                display: 'flex',
-                gap: isLarge ? 4 : 2,
-                ml: 6,
-                alignItems: 'center',
-              }}
-            >
-              <Button sx={{ color: 'black' }}>Home</Button>
-              <Button sx={{ color: 'black' }}>Volunteer</Button>
-
-              <Button
-                sx={{ color: 'black' }}
-                onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-                  setAnchorEl(e.currentTarget)
-                }
-                endIcon={<ExpandMoreIcon />}
-              >
-                Stories
-              </Button>
-
-              <Menu
-                anchorEl={anchorEl}
-                open={open}
-                onClose={() => setAnchorEl(null)}
-                slotProps={{
-                  paper: {
-                    elevation: 3,
-                    sx: { mt: 1 },
-                  },
+            {/* Desktop Menu */}
+            {isMedium && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 3,
+                  ml: 6,
                 }}
               >
-                <MenuItem onClick={() => setAnchorEl(null)}>Blog</MenuItem>
-                <MenuItem onClick={() => setAnchorEl(null)}>Podcast</MenuItem>
-              </Menu>
+                <Button sx={{ color: 'black' }}>Home</Button>
+                <Button sx={{ color: 'black' }}>Volunteer</Button>
 
-              <Button sx={{ color: 'black' }}>Login</Button>
-            </Box>
-          )}
+                <Button
+                  sx={{ color: 'black' }}
+                  onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                    setAnchorEl(e.currentTarget)
+                  }
+                  endIcon={<ExpandMoreIcon />}
+                >
+                  Stories
+                </Button>
 
-          {isLarge && (
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 3,
-                ml: 'auto',
-              }}
-            >
-              <IconButton>
-                <FavoriteIcon data-testid="FavoriteIcon" />
-              </IconButton>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={() => setAnchorEl(null)}
+                  slotProps={{
+                    paper: {
+                      elevation: 3,
+                      sx: { mt: 1 },
+                    },
+                  }}
+                >
+                  <MenuItem onClick={() => setAnchorEl(null)}>Blog</MenuItem>
+                  <MenuItem onClick={() => setAnchorEl(null)}>Podcast</MenuItem>
+                </Menu>
 
-              <Box sx={{ height: 24, width: 1, bgcolor: '#bbb' }} />
+                <Button sx={{ color: 'black' }}>Login</Button>
+              </Box>
+            )}
 
-              <IconButton>
-                <PersonIcon data-testid="PersonIcon" />
-              </IconButton>
+            {/* Icons */}
+            {isMedium && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 2,
+                  ml: 'auto',
+                }}
+              >
+                <IconButton>
+                  <FavoriteIcon />
+                </IconButton>
 
-              <Box sx={{ height: 24, width: 1, bgcolor: '#bbb' }} />
+                <IconButton>
+                  <PersonIcon />
+                </IconButton>
 
-              <IconButton>
-                <NotificationsIcon data-testid="NotificationsIcon" />
-              </IconButton>
-            </Box>
-          )}
-
-          {!isLarge && isMedium && (
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 1.5,
-                ml: 'auto',
-              }}
-            >
-              <IconButton>
-                <FavoriteIcon data-testid="FavoriteIcon" />
-              </IconButton>
-              <IconButton>
-                <PersonIcon data-testid="PersonIcon" />
-              </IconButton>
-              <IconButton>
-                <NotificationsIcon data-testid="NotificationsIcon" />
-              </IconButton>
-            </Box>
-          )}
+                <IconButton>
+                  <NotificationsIcon />
+                </IconButton>
+              </Box>
+            )}
+          </Box>
         </Toolbar>
       </AppBar>
 
       <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
-
       {!isMedium && <MobileBottomNav />}
     </>
   );
